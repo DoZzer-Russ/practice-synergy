@@ -1,3 +1,4 @@
+// Массив с картинками
 const images = [
     'img/1.jpg',
     'img/2.jpg',
@@ -16,6 +17,7 @@ const arrowRight = document.querySelector('.arrow-right');
 
 let currentIndex = 0;
 
+// Функция обновления слайдера
 function updateSlider() {
     slider2.src = images[currentIndex];
 
@@ -36,6 +38,7 @@ function updateSlider() {
     });
 }
 
+// Переключение слайдера стрелками
 arrowRight.addEventListener('click', function () {
     currentIndex = (currentIndex + 1) % images.length;
     updateSlider();
@@ -46,7 +49,7 @@ arrowLeft.addEventListener('click', function () {
     updateSlider();
 });
 
-
+// Переключение слайдера квадратами
 squares.forEach((square, index) => {
     square.addEventListener('click', function () {
         currentIndex = index;
@@ -60,6 +63,7 @@ const modalImage = document.getElementById('modalImage');
 const closeBtn = document.getElementById('closeModal');
 const sliderCenter = document.querySelector('.slider-2');
 
+// Открытие картинки на весь экран
 sliderCenter.addEventListener('click', function () {
     modalImage.src = slider2.src;
     modal.classList.add('show');
@@ -81,4 +85,5 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+// Инициализация функции
 updateSlider();
